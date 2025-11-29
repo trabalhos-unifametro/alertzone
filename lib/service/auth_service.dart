@@ -5,9 +5,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+// import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:alertzone/service/firebase_db_service.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -64,25 +63,26 @@ class AuthService {
   Future<User?> signInWithApple() async {
     try {
       // TODO: Para mobile (iOS) pode precisar de nonce etc..
-      final appleCredential = await SignInWithApple.getAppleIDCredential(
-        scopes: [
-          AppleIDAuthorizationScopes.email,
-          AppleIDAuthorizationScopes.fullName,
-        ],
-      );
+      // final appleCredential = await SignInWithApple.getAppleIDCredential(
+      //   scopes: [
+      //     AppleIDAuthorizationScopes.email,
+      //     AppleIDAuthorizationScopes.fullName,
+      //   ],
+      // );
 
-      final oauthCredential = OAuthProvider("apple.com").credential(
-        idToken: appleCredential.identityToken,
-        accessToken: appleCredential.authorizationCode,
-      );
+      // final oauthCredential = OAuthProvider("apple.com").credential(
+      //   idToken: appleCredential.identityToken,
+      //   accessToken: appleCredential.authorizationCode,
+      // );
 
-      final userCredential = await _auth.signInWithCredential(oauthCredential);
+      // final userCredential = await _auth.signInWithCredential(oauthCredential);
 
-      if (userCredential.user != null) {
-        await createOrUpdateUserProfile(userCredential.user!);
-      }
-
-      return userCredential.user;
+      // if (userCredential.user != null) {
+      //   await createOrUpdateUserProfile(userCredential.user!);
+      // }
+      //
+      // return userCredential.user;
+      return null;
     } catch (e) {
       print("Erro Apple Login: $e");
       return null;
