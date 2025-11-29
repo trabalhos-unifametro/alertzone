@@ -34,27 +34,14 @@
 <!--    font-src 'self' data: https://fonts.gstatic.com;-->
 <!--    connect-src 'self' wss://* https://*;"-->
 <!--  >-->
-    <meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  script-src 'self' 'unsafe-inline' 'unsafe-eval'
-    https://maps.googleapis.com
-    https://maps.gstatic.com
-    https://www.gstatic.com
-    https://www.googletagmanager.com;
-  script-src-elem 'self' 'unsafe-inline'
-    https://maps.googleapis.com
-    https://maps.gstatic.com
-    https://www.gstatic.com
-    https://www.googletagmanager.com;
-  connect-src 'self' https://*.googleapis.com https://*.gstatic.com;
-  img-src 'self' data: https://*.gstatic.com https://*.googleapis.com;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-  font-src 'self' https://fonts.gstatic.com;
-  worker-src 'self' blob:;
-  frame-src 'self';
-">
-
-
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self';
+               script-src 'self' https://maps.googleapis.com 'unsafe-inline';
+               connect-src 'self' https://maps.googleapis.com;
+               img-src 'self' data: https://maps.gstatic.com https://maps.googleapis.com;
+               style-src 'self' 'unsafe-inline';
+               frame-src https://www.google.com https://maps.googleapis.com;">
+    
     <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 <!--  <meta name="google-signin-client_id"-->
@@ -65,7 +52,7 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
-<!--  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxG4UuTW-Gu7kGHeBQciYWplxFj1o45qA&libraries=places"></script>-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxG4UuTW-Gu7kGHeBQciYWplxFj1o45qA&libraries=places"></script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
