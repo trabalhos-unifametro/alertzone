@@ -70,7 +70,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: MediaQuery.of(context).size.height * 0.35,
                     width: double.infinity,
                     child: Center(
-                        child: SvgPicture.asset("assets/images/logo.svg", height: 100)
+                        child: InkWell(
+                          onTap: () {
+                            final String currentRoute = GoRouter.of(context).state.matchedLocation;
+                            if (currentRoute != '/home') {
+                              context.go('/home');
+                            }
+                          },
+                          child: SvgPicture.asset("assets/images/logo.svg", height: 100),
+                        ),
                     ),
                   ),
 
