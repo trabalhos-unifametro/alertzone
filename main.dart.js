@@ -51546,7 +51546,9 @@ l=b.c
 k=l==="/"
 j=l==="/home"||l==="/login"
 i=B.c.b7(l,"/form")||l==="/occurrences"||l==="/account"
-if(!h&&!k){q="/"
+if(l==="/politica-e-privacidade.pdf"||l==="/termos-de-servico.pdf"){q=null
+s=1
+break}if(!h&&!k){q="/"
 s=1
 break}if(h&&k){q="/home"
 s=1

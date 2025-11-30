@@ -11,6 +11,7 @@ const RESOURCES = {"flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "manifest.json": "d4334563b709e72e1c0def3ab69d8387",
 "index.html": "dd26e3e950a507ee59c4a4f542fdb8ff",
 "/": "dd26e3e950a507ee59c4a4f542fdb8ff",
+"politica-e-privacidade.pdf": "df872bcc75afc4987d83c1612cc1a83a",
 "assets/shaders/stretch_effect.frag": "40d68efbbf360632f614c731219e95f0",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/AssetManifest.bin.json": "715fe2f105360df72f5b64b034a238d9",
@@ -35,11 +36,10 @@ const RESOURCES = {"flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "canvaskit/canvaskit.js.symbols": "a3c9f77715b642d0437d9c275caba91e",
 "canvaskit/skwasm.js.symbols": "3a4aadf4e8141f284bd524976b1d6bdc",
 "favicon.png": "ec6beb6fc2e617a0cdf93ee383158cfb",
-"politica-de-privacidade.pdf": "df872bcc75afc4987d83c1612cc1a83a",
 "termos-de-servico.pdf": "2e1ae1983019f5c2048708e164877a69",
-"flutter_bootstrap.js": "2f25a65f89cb52ccd51c7d8578d31011",
+"flutter_bootstrap.js": "a85548b1e7ca8d14c1498dbcd17df54e",
 "version.json": "74a97ce40ab6325c8bc8a7bf3f4cebbb",
-"main.dart.js": "4fc500d278e58f724a15121eb96c92d0"};
+"main.dart.js": "a665ce33bee5334d3436c959ce4687fb"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
