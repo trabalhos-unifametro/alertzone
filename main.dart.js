@@ -51334,7 +51334,7 @@ return A.v($async$$0,r)},
 $S:9}
 A.X9.prototype={
 I(a){var s=$.b80()
-return new A.zB($.bbn(),"Mapa de Ocorr\xeancias",s,!1,null)}}
+return new A.zB($.bbn(),"AlertZone - Mapa de Ocorr\xeancias",s,!1,null)}}
 A.aSo.prototype={
 $2(a,b){var s,r,q,p,o,n
 $.aZf()
