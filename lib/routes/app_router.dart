@@ -12,6 +12,7 @@ import '../screens/register_occurrence_screen.dart';
 import '../screens/occurrences_list_screen.dart';
 import '../screens/my_account_screen.dart';
 import '../service/auth_notifier_service.dart';
+import '../utils/terms_utils.dart';
 
 final _shellNavigatorKey = GlobalKey<NavigatorState>();
 bool get isDesktop =>
@@ -20,21 +21,53 @@ bool get isDesktop =>
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
   refreshListenable: authNotifier,
-  redirect: (context, state) {
+  redirect: (context, state) async {
+    final bool termsAccepted = await checkTermsAccepted();
     final user = authNotifier.user;
     final bool isLogged = user != null && !user.isAnonymous;
+    final String location = state.matchedLocation;
+    final bool isSplash = location == '/';
+    final bool isPublic = location == '/home' || location == '/login';
+    final bool isProtected = location.startsWith('/form') ||
+        location == '/occurrences' ||
+        location == '/account';
 
-    final loggingIn = state.matchedLocation == '/login';
-    final splash = state.matchedLocation == '/';
-    final home = state.matchedLocation == '/home';
-    if (loggingIn || splash) return null;
-    if (isLogged && loggingIn) return '/home';
-    if (!isLogged) {
-      if (home) return null;
-      return '/login';
+    if (!termsAccepted && !isSplash) {
+      return '/';
+    }
+
+    if (termsAccepted && isSplash) {
+      return '/home';
+    }
+
+    if (isPublic) {
+      if (isLogged && location == '/login') {
+        return '/home';
+      }
+      return null;
+    }
+
+    if (isProtected) {
+      if (!isLogged) {
+        return '/login';
+      }
     }
 
     return null;
+    // final user = authNotifier.user;
+    // final bool isLogged = user != null && !user.isAnonymous;
+    //
+    // final loggingIn = state.matchedLocation == '/login';
+    // final splash = state.matchedLocation == '/';
+    // final home = state.matchedLocation == '/home';
+    // if (loggingIn || splash) return null;
+    // if (isLogged && loggingIn) return '/home';
+    // if (!isLogged) {
+    //   if (home) return null;
+    //   return '/login';
+    // }
+    //
+    // return null;
   },
   routes: [
     GoRoute(
