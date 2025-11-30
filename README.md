@@ -1,6 +1,6 @@
 # alertzone
 
-A new Flutter project.
+Mapa de ocorrências de roubos e criminalidade em Fortaleza-CE..
 
 ## Getting Started
 
