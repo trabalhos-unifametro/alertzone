@@ -32,6 +32,13 @@ final GoRouter appRouter = GoRouter(
         location == '/occurrences' ||
         location == '/account';
 
+    final bool isDocument = location == '/politica-e-privacidade.pdf' ||
+        location == '/termos-de-servico.pdf';
+
+    if (isDocument) {
+      return null;
+    }
+
     if (!termsAccepted && !isSplash) {
       return '/';
     }
