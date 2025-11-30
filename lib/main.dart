@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Mapa de Ocorrências',
+      title: 'AlertZone - Mapa de Ocorrências',
       theme: AppTheme.lightTheme,
       routerConfig: appRouter,
     );
