@@ -56,143 +56,147 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.primary500,
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.35,
-                  width: double.infinity,
-                  child: Center(
-                    child: SvgPicture.asset("assets/images/logo.svg", height: 100)
-                  ),
-                ),
-
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.65,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(100),
+    return Title(
+      title: 'Alert Zone - Tela de login',
+      color: Colors.blue,
+      child: Scaffold(
+        backgroundColor: AppColors.primary500,
+        body: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.35,
+                    width: double.infinity,
+                    child: Center(
+                        child: SvgPicture.asset("assets/images/logo.svg", height: 100)
                     ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        const SizedBox(height: 30),
-                        const Text('FAZER LOGIN COM', textAlign: TextAlign.center, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primary500),),
-                        const SizedBox(height: 20),
 
-                        MaxWidthContainerWeb(
-                          child: ElevatedButton(
-                            onPressed: _loading ? null : _signInGoogle,
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              backgroundColor: AppColors.primary500,
-                              padding: const EdgeInsets.symmetric(vertical: 15),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                _iconSvg('assets/images/google_logo.svg'),
-                                const Text('GOOGLE', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                                const SizedBox(width: 30),
-                              ],
-                            ),
-                          ),
-                        ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.65,
+                    width: double.infinity,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(100),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          const SizedBox(height: 30),
+                          const Text('FAZER LOGIN COM', textAlign: TextAlign.center, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primary500),),
+                          const SizedBox(height: 20),
 
-                        const SizedBox(height: 15),
-
-                        MaxWidthContainerWeb(
-                          child: ElevatedButton(
-                            onPressed: _loading ? null : _signInApple,
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              backgroundColor: AppColors.primary500,
-                              padding: const EdgeInsets.symmetric(vertical: 15),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                _iconSvg('assets/images/apple_logo.svg'),
-                                const Text('APPLE', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                                const SizedBox(width: 30),
-                              ],
-                            ),
-                          ),
-                        ),
-
-                        const SizedBox(height: 30),
-                        MaxWidthContainerWeb(
-                          child: const Row(
-                            children: [
-                              Expanded(child: Divider(thickness: 1)),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                child: Text('ou'),
+                          MaxWidthContainerWeb(
+                            child: ElevatedButton(
+                              onPressed: _loading ? null : _signInGoogle,
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.white,
+                                backgroundColor: AppColors.primary500,
+                                padding: const EdgeInsets.symmetric(vertical: 15),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                               ),
-                              Expanded(child: Divider(thickness: 1)),
-                            ],
-                          ),
-                        ),
-
-                        const SizedBox(height: 30),
-
-                        MaxWidthContainerWeb(
-                          child: OutlinedButton(
-                            onPressed: _loading
-                                ? null
-                                : () async {
-                              setState(() => _loading = true);
-
-                              await AuthService().signInAnonymously();
-
-                              if (!mounted) return;
-
-                              setState(() => _loading = false);
-
-                              context.goNamed('home');
-                            },
-                            style: OutlinedButton.styleFrom(
-                              foregroundColor: AppColors.primary500,
-                              side: const BorderSide(color: Color(0xFF4268b3)),
-                              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  _iconSvg('assets/images/google_logo.svg'),
+                                  const Text('GOOGLE', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
+                                  const SizedBox(width: 30),
+                                ],
+                              ),
                             ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          ),
+
+                          const SizedBox(height: 15),
+
+                          MaxWidthContainerWeb(
+                            child: ElevatedButton(
+                              onPressed: _loading ? null : _signInApple,
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.white,
+                                backgroundColor: AppColors.primary500,
+                                padding: const EdgeInsets.symmetric(vertical: 15),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  _iconSvg('assets/images/apple_logo.svg'),
+                                  const Text('APPLE', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
+                                  const SizedBox(width: 30),
+                                ],
+                              ),
+                            ),
+                          ),
+
+                          const SizedBox(height: 30),
+                          MaxWidthContainerWeb(
+                            child: const Row(
                               children: [
-                                const SizedBox(width: 30),
-                                const Text('CONTINUAR SEM LOGIN', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                                const Icon(Icons.arrow_forward, size: 25,),
+                                Expanded(child: Divider(thickness: 1)),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 10),
+                                  child: Text('ou'),
+                                ),
+                                Expanded(child: Divider(thickness: 1)),
                               ],
                             ),
                           ),
-                        ),
-                      ],
+
+                          const SizedBox(height: 30),
+
+                          MaxWidthContainerWeb(
+                            child: OutlinedButton(
+                              onPressed: _loading
+                                  ? null
+                                  : () async {
+                                setState(() => _loading = true);
+
+                                await AuthService().signInAnonymously();
+
+                                if (!mounted) return;
+
+                                setState(() => _loading = false);
+
+                                context.goNamed('home');
+                              },
+                              style: OutlinedButton.styleFrom(
+                                foregroundColor: AppColors.primary500,
+                                side: const BorderSide(color: Color(0xFF4268b3)),
+                                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const SizedBox(width: 30),
+                                  const Text('CONTINUAR SEM LOGIN', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
+                                  const Icon(Icons.arrow_forward, size: 25,),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
 
-          if (_loading)
-            Container(
-              color: Colors.black54,
-              child: const Center(child: CircularProgressIndicator(color: Colors.white)),
-            ),
-        ],
+            if (_loading)
+              Container(
+                color: Colors.black54,
+                child: const Center(child: CircularProgressIndicator(color: Colors.white)),
+              ),
+          ],
+        ),
       ),
     );
   }
