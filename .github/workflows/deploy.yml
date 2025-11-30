@@ -28,8 +28,8 @@ jobs:
         run: flutter pub get
 
       - name: Build Web Release
-        # DEV: flutter run --dart-define=GOOGLE_MAPS_API_KEY=VALOR_AQUI
-        run: flutter build web --release --dart-define=GOOGLE_MAPS_API_KEY=${{ secrets.GEOCODING_KEY }}
+        # DEV: flutter run --dart-define=GEOCODING_API_KEY=VALOR_AQUI
+        run: flutter build web --release --dart-define=GEOCODING_API_KEY=${{ secrets.GEOCODING_KEY }}
 
       - name: Fix 404 routing for GitHub Pages
         run: cp ./build/web/index.html ./build/web/404.html

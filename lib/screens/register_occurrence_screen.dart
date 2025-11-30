@@ -233,9 +233,9 @@ class _RegisterOccurrenceScreenState extends State<RegisterOccurrenceScreen> {
   }
 
   Future<GeocodeResult?> _geocodeWeb(String address) async {
-    // final apiKey = dotenv.env['GOOGLE_MAPS_API_KEY'];
+    // final apiKey = dotenv.env['GEOCODING_API_KEY'];
     const String googleMapsApiKey = String.fromEnvironment(
-        'GOOGLE_MAPS_API_KEY',
+        'GEOCODING_API_KEY',
         defaultValue: ''
     );
     final url = Uri.parse(
